@@ -76,7 +76,7 @@ class DatePickerView: UIView {
 //        backView.backgroundColor = UIColor(red: 151/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8)
     }
     
-    private let barHeight: CGFloat = 40.0
+    private let barHeight: CGFloat = 49.0
     private func loadDatePicker() {
         if datePicker == nil {
             let dframe = CGRect(x: 0, y: self.bounds.height + barHeight, width: self.bounds.width, height: 300)
@@ -89,20 +89,23 @@ class DatePickerView: UIView {
             
             barView = UIView()
             barView?.frame = CGRect(x: 0, y: self.bounds.height, width: self.bounds.width, height: barHeight)
-            barView?.backgroundColor = UIColor.lightGray
+            let backColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+            barView?.backgroundColor = backColor
             addSubview(barView!)
             
             cancelBtn = UIButton(type: .custom)
             cancelBtn?.setTitle("取消", for: UIControlState())
             cancelBtn?.addTarget(self, action: #selector(hide), for: .touchUpInside)
-            cancelBtn?.setTitleColor(UIColor.blue, for: UIControlState())
+            let cancelColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1.0)
+            cancelBtn?.setTitleColor(cancelColor, for: UIControlState())
             cancelBtn?.frame = CGRect(x: 0, y: 0, width: 80, height: barHeight)
             barView?.addSubview(cancelBtn!)
             
             sureBtn = UIButton(type: .custom)
             sureBtn?.setTitle("确定", for: UIControlState())
             sureBtn?.addTarget(self, action: #selector(sure), for: .touchUpInside)
-            sureBtn?.setTitleColor(UIColor.red, for: UIControlState())
+            let sureColor = UIColor(red: 5/255.0, green: 5/255.0, blue: 5/255.0, alpha: 1.0)
+            sureBtn?.setTitleColor(sureColor, for: UIControlState())
             sureBtn?.frame = CGRect(x: (barView?.frame.size.width)! - 80, y: 0, width: 80, height: barHeight)
             barView?.addSubview(sureBtn!)
         }
