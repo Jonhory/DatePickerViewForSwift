@@ -82,6 +82,11 @@ class DatePickerView: UIView {
             let dframe = CGRect(x: 0, y: self.bounds.height + barHeight, width: self.bounds.width, height: 300)
             datePicker = UIDatePicker(frame: dframe)
             datePicker?.datePickerMode = .date
+            let minDateStr = "19000101"
+            let minFormatter = DateFormatter()
+            minFormatter.dateFormat = "yyyyMMdd"
+            datePicker?.minimumDate = minFormatter.date(from: minDateStr)
+            datePicker?.maximumDate = Date()
             datePicker?.backgroundColor = UIColor.white
             datePicker?.addTarget(self, action: #selector(datePickerChangeValue), for: .valueChanged)
             addSubview(datePicker!)
