@@ -18,7 +18,9 @@ class DatePickerView: UIView {
     var sureBtn: UIButton?
     var dateStr: String!
     
-    private let animateTime = 1.3
+    private let animateTime = 0.68
+    private let barHeight: CGFloat = 49.0
+    private let pickerHeight: CGFloat = 215
     
     var sureBlock: ((String) -> ())?
     
@@ -35,14 +37,14 @@ class DatePickerView: UIView {
         loadDatePicker()
         
         UIView.animate(withDuration: animateTime) {
-            self.datePicker?.frame = CGRect(x: 0, y: self.bounds.height - 300, width: self.bounds.width, height: 300)
-            self.barView?.frame = CGRect(x: 0, y: self.bounds.height - 300 - self.barHeight, width: self.bounds.width, height: self.barHeight)
+            self.datePicker?.frame = CGRect(x: 0, y: self.bounds.height - self.pickerHeight, width: self.bounds.width, height: self.pickerHeight)
+            self.barView?.frame = CGRect(x: 0, y: self.bounds.height - self.pickerHeight - self.barHeight, width: self.bounds.width, height: self.barHeight)
         }
     }
     
     func hide() {
         UIView.animate(withDuration: animateTime, animations: {
-            self.datePicker?.frame = CGRect(x: 0, y: self.bounds.height + self.barHeight, width: self.bounds.width, height: 300)
+            self.datePicker?.frame = CGRect(x: 0, y: self.bounds.height + self.barHeight, width: self.bounds.width, height: self.pickerHeight)
             self.barView?.frame = CGRect(x: 0, y: self.bounds.height, width: self.bounds.width, height: self.barHeight)
         }) { (finished) in
             if finished {
@@ -76,10 +78,9 @@ class DatePickerView: UIView {
 //        backView.backgroundColor = UIColor(red: 151/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8)
     }
     
-    private let barHeight: CGFloat = 49.0
     private func loadDatePicker() {
         if datePicker == nil {
-            let dframe = CGRect(x: 0, y: self.bounds.height + barHeight, width: self.bounds.width, height: 300)
+            let dframe = CGRect(x: 0, y: self.bounds.height + barHeight, width: self.bounds.width, height: pickerHeight)
             datePicker = UIDatePicker(frame: dframe)
             datePicker?.datePickerMode = .date
             let minDateStr = "19000101"
