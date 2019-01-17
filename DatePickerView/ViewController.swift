@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     func loadLabel() {
         timeLabel.text = "请选择日期"
-        timeLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        timeLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
         timeLabel.center = CGPoint(x: view.center.x, y: view.center.y - 200)
         timeLabel.textColor = UIColor.black
         view.addSubview(timeLabel)
@@ -49,11 +49,11 @@ class ViewController: UIViewController {
     }
     
     func loadDatePicker() {
-        datePicker = DatePickerView.addTo(superView: view)
-        datePicker?.sureBlock = {[weak self] dateStr in
-            print("哈哈哈",dateStr)
-            self?.timeLabel.text = dateStr
+        if datePicker == nil {
+            datePicker = DatePickerView(isSingle: false, superView: view)
+            datePicker?.delegate = self
         }
+        datePicker?.show()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,3 +64,14 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: DatePickerViewDelegate {
+    
+    func datePickerSure(_ leftStr: String, rightStr: String, picker: DatePickerView) {
+        timeLabel.text = leftStr + " - " + rightStr
+        timeBtn.isSelected = !timeBtn.isSelected
+    }
+    
+    func datePickerCancel(_ picker: DatePickerView) {
+        timeBtn.isSelected = !timeBtn.isSelected
+    }
+}
