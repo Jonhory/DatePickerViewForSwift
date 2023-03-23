@@ -45,10 +45,10 @@ class DatePickerViewColorConfig {
     var background = Background()
 }
 
-protocol DatePickerViewDelegate: NSObjectProtocol {
+@objc protocol DatePickerViewDelegate: NSObjectProtocol {
     
-    func datePickerSure(_ leftStr: String, rightStr: String, picker: DatePickerView)
-    func datePickerCancel(_ picker: DatePickerView)
+    @objc optional func datePickerSure(_ leftStr: String, rightStr: String, picker: DatePickerView)
+    @objc optional func datePickerCancel(_ picker: DatePickerView)
 }
 
 /// 时间选择控件 11:12 - 13:14 isSingle: 单独时间 年月日
@@ -220,11 +220,11 @@ class DatePickerView: UIView {
     @objc func btnClick(_ btn: UIButton) {
         hide()
         if btn == backV {
-            delegate?.datePickerCancel(self)
+            delegate?.datePickerCancel?(self)
             return
         }
         
-        if btn == cancelBtn { delegate?.datePickerCancel(self) }
+        if btn == cancelBtn { delegate?.datePickerCancel?(self) }
         
         if isSingle == false {
             if isFreeTime == false && rightDate.compare(leftDate) == .orderedAscending {
@@ -236,16 +236,15 @@ class DatePickerView: UIView {
                 let leftStr = formatter.string(from: leftDate)
                 let rightStr = formatter.string(from: rightDate)
                 
-                delegate?.datePickerSure(leftStr, rightStr: rightStr, picker: self)
+                delegate?.datePickerSure?(leftStr, rightStr: rightStr, picker: self)
             }
         } else {
             if btn == sureBtn {
                 formatter.dateFormat = format
                 let leftStr = formatter.string(from: leftDate)
-                delegate?.datePickerSure(leftStr, rightStr: "", picker: self)
+                delegate?.datePickerSure?(leftStr, rightStr: "", picker: self)
             }
         }
-        
     }
     
     /// 最小时间
