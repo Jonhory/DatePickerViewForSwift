@@ -45,7 +45,7 @@ class DatePickerViewColorConfig {
     var background = Background()
 }
 
-protocol DatePickerViewDelegate: class {
+protocol DatePickerViewDelegate: NSObjectProtocol {
     
     func datePickerSure(_ leftStr: String, rightStr: String, picker: DatePickerView)
     func datePickerCancel(_ picker: DatePickerView)
@@ -164,6 +164,11 @@ class DatePickerView: UIView {
         leftTime.locale = Locale(identifier: "zh_CN")
         leftTime.datePickerMode = .date
         leftTime.minimumDate = Date()
+        if #available(iOS 13.4, *) {
+            leftTime.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         leftTime.addTarget(self, action: #selector(dateChange(_:)), for: .valueChanged)
         bottomV.addSubview(leftTime)
 
@@ -177,12 +182,22 @@ class DatePickerView: UIView {
         leftTime.backgroundColor = colorConfig.background.timePicker
         leftTime.datePickerMode = .time
         leftTime.addTarget(self, action: #selector(dateChange(_:)), for: .valueChanged)
+        if #available(iOS 13.4, *) {
+            leftTime.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         
         rightTime.layer.masksToBounds = true
         rightTime.layer.cornerRadius = 10
         rightTime.backgroundColor = colorConfig.background.timePicker
         rightTime.datePickerMode = .time
         rightTime.addTarget(self, action: #selector(dateChange(_:)), for: .valueChanged)
+        if #available(iOS 13.4, *) {
+            rightTime.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         
         bottomV.addSubview(leftTime)
         bottomV.addSubview(rightTime)
@@ -194,6 +209,12 @@ class DatePickerView: UIView {
         let centerL = create(text: "至", color: colorConfig.title.center, font: 16, superView: bottomV)
         centerL.sizeToFit()
         centerL.center = CGPoint(x: center.x, y: leftTime.center.y)
+        
+        leftTime.backgroundColor = .blue
+        rightTime.backgroundColor = .green
+        
+        print("左侧视图 \(leftTime.frame)")
+        print("右侧视图 \(rightTime.frame)")
     }
     
     @objc func btnClick(_ btn: UIButton) {

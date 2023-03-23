@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         loadTimeBtn()
     }
     
-    func handle(_ btn: UIButton) {
+    @objc func handle(_ btn: UIButton) {
         btn.isSelected = !btn.isSelected
         if btn.isSelected {
             datePicker?.show()
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     func loadTimeBtn() {
-        timeBtn.setTitle("弹出时间选择器", for: UIControlState())
+        timeBtn.setTitle("弹出时间选择器", for: .normal)
         timeBtn.setTitle("关闭时间选择器", for: .selected)
         timeBtn.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
         timeBtn.center = CGPoint(x: view.center.x, y: view.center.y - 100)

@@ -13,9 +13,12 @@
 		BB9850131E7FB15F00C511A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9850121E7FB15F00C511A5 /* Assets.xcassets */; };
 		BB9850161E7FB15F00C511A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9850141E7FB15F00C511A5 /* LaunchScreen.storyboard */; };
 		BB98501E1E7FB1FE00C511A5 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98501D1E7FB1FE00C511A5 /* DatePickerView.swift */; };
+		BF1A86EE5DF462C8776AF6E0 /* Pods_DatePickerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC1ACF9D1386C7D1F0CE18E /* Pods_DatePickerView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		393614AE72628261CD47C086 /* Pods-DatePickerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatePickerView.release.xcconfig"; path = "Target Support Files/Pods-DatePickerView/Pods-DatePickerView.release.xcconfig"; sourceTree = "<group>"; };
+		A84862B879BD7E1A4C1EF5F6 /* Pods-DatePickerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatePickerView.debug.xcconfig"; path = "Target Support Files/Pods-DatePickerView/Pods-DatePickerView.debug.xcconfig"; sourceTree = "<group>"; };
 		BB9850081E7FB15F00C511A5 /* DatePickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatePickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98500B1E7FB15F00C511A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB98500D1E7FB15F00C511A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		BB9850151E7FB15F00C511A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB9850171E7FB15F00C511A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB98501D1E7FB1FE00C511A5 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		FBC1ACF9D1386C7D1F0CE18E /* Pods_DatePickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DatePickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1A86EE5DF462C8776AF6E0 /* Pods_DatePickerView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		459E761D0F9C8D94FD2865EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBC1ACF9D1386C7D1F0CE18E /* Pods_DatePickerView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB984FFF1E7FB15F00C511A5 = {
 			isa = PBXGroup;
 			children = (
 				BB98500A1E7FB15F00C511A5 /* DatePickerView */,
 				BB9850091E7FB15F00C511A5 /* Products */,
+				BBE96476268ABE960BE4101F /* Pods */,
+				459E761D0F9C8D94FD2865EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = DatePickerView;
 			sourceTree = "<group>";
 		};
+		BBE96476268ABE960BE4101F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A84862B879BD7E1A4C1EF5F6 /* Pods-DatePickerView.debug.xcconfig */,
+				393614AE72628261CD47C086 /* Pods-DatePickerView.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB98501A1E7FB15F00C511A5 /* Build configuration list for PBXNativeTarget "DatePickerView" */;
 			buildPhases = (
+				AECA40FBE1B0829B8C9BEE73 /* [CP] Check Pods Manifest.lock */,
 				BB9850041E7FB15F00C511A5 /* Sources */,
 				BB9850051E7FB15F00C511A5 /* Frameworks */,
 				BB9850061E7FB15F00C511A5 /* Resources */,
@@ -99,7 +124,6 @@
 				TargetAttributes = {
 					BB9850071E7FB15F00C511A5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4EHUQSUYU5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -109,6 +133,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -134,6 +159,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AECA40FBE1B0829B8C9BEE73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DatePickerView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB9850041E7FB15F00C511A5 /* Sources */ = {
@@ -263,29 +313,31 @@
 		};
 		BB98501B1E7FB15F00C511A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A84862B879BD7E1A4C1EF5F6 /* Pods-DatePickerView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4EHUQSUYU5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DatePickerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jonhory.DatePickerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		BB98501C1E7FB15F00C511A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 393614AE72628261CD47C086 /* Pods-DatePickerView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4EHUQSUYU5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DatePickerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jonhory.DatePickerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -308,6 +360,7 @@
 				BB98501C1E7FB15F00C511A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
