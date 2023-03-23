@@ -97,14 +97,14 @@ class DatePickerView: UIView {
         isHidden = false
         UIView.animate(withDuration: 0.25) {
             self.backV.alpha = 0.2
-            self.bottomV.frame = CGRect(x: 0, y: self.bounds.height - self.height, width: self.bounds.width, height: self.height)
+            self.bottomV.frame = CGRect(x: 0, y: self.bounds.height - self.bottomViewHeight, width: self.bounds.width, height: self.bottomViewHeight)
         }
     }
     
     @objc public func hide() {
         UIView.animate(withDuration: 0.25, animations: {
             self.backV.alpha = 0
-            self.bottomV.frame = CGRect(x: 0, y: self.bounds.height, width: self.bounds.width, height: self.height)
+            self.bottomV.frame = CGRect(x: 0, y: self.bounds.height, width: self.bounds.width, height: self.bottomViewHeight)
         }) { (f) in
             if f {
                 self.isHidden = true
@@ -128,7 +128,7 @@ class DatePickerView: UIView {
     /// 时间选择控件高度
     let timeHeight: CGFloat = 180
     /// 底部视图高度
-    let height: CGFloat = 180 + 44 + TabbarSafeBottomMargin() + 26
+    let bottomViewHeight: CGFloat = 180 + 44 + TabbarSafeBottomMargin() + 26
     lazy var formatter = DateFormatter()
     
     private func loadPublicUI() {
@@ -138,11 +138,11 @@ class DatePickerView: UIView {
         backV.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         addSubview(backV)
         
-        bottomV.frame = CGRect(x: 0, y: bounds.height, width: bounds.width, height: height)
+        bottomV.frame = CGRect(x: 0, y: bounds.height, width: bounds.width, height: bottomViewHeight)
         bottomV.backgroundColor = colorConfig.background.picker
         addSubview(bottomV)
         
-        let barView = UIView(frame: CGRect(x: 0, y: bottomV.bounds.height - height, width: bottomV.bounds.width, height: barHeight))
+        let barView = UIView(frame: CGRect(x: 0, y: bottomV.bounds.height - bottomViewHeight, width: bottomV.bounds.width, height: barHeight))
         barView.backgroundColor = colorConfig.background.barView
         bottomV.addSubview(barView)
         
